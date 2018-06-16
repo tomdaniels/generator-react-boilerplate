@@ -1,6 +1,6 @@
 {
   "name": "generator-td-react-boilerplate",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "yo generator for 'td-react-boilerplate'",
   "main": "index.js",
   "scripts": {
