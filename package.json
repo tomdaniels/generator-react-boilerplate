@@ -1,5 +1,5 @@
 {
-  "name": "generator-react-boilerplate",
+  "name": "generator-td-react-boilerplate",
   "version": "0.1.0",
   "description": "yo generator for 'td-react-boilerplate'",
   "main": "index.js",
