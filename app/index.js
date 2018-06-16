@@ -12,7 +12,6 @@ const commandExists = require('command-exists');
 const findParentDir = require('find-parent-dir');
 const generatorPackageJson = require('../package.json');
 const pascalcase = require('../util/pascalcase');
-const { feCoize, unFeCoize } = require('../util/fe-co');
 const { FILE_DELIM_OPEN, FILE_DELIM_CLOSE } = require('../util/ejs-util');
 
 const generatorVersion = generatorPackageJson.version;
@@ -70,8 +69,7 @@ module.exports = yeoman.extend({
         type: 'input',
         name: 'feComponent',
         message:
-          'Your component name. You can either prefix it with fe-co, or the generator will do it for you',
-        default: feCoize(this.appname), // Default to current folder name
+          'Your component name. You can either prefix it with fe-co, or the generator will do it for you'
       },
       {
         type: 'input',
@@ -96,8 +94,6 @@ module.exports = yeoman.extend({
 
     return this.prompt(prompts).then((props) => {
       const newProps = cloneDeep(props);
-      newProps.feComponent = feCoize(props.feComponent);
-      newProps.component = unFeCoize(props.feComponent);
       newProps.componentCC = pascalcase(newProps.component);
       newProps.generatorVersion = generatorVersion;
       this.props = newProps;
