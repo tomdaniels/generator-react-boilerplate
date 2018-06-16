@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 - filenaming
 
+### Changed
+- Prompt for component or app name
+
 ## [0.4.0][] - 2018-06-16
 ### Changed
 - No default filename or special prefix
