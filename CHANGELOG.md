@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+
+## [0.3.0][] - 2018-06-16
 ### Changed
 - Added files property to package.json
 
@@ -17,6 +19,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Generator created
 
 
-[Unreleased]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/tomdaniels/generator-react-boilerplate/tree/v0.1.0
