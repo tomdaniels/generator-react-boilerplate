@@ -66,7 +66,7 @@ module.exports = class extends Generator {
     const prompts = [
       {
         type: 'input',
-        name: 'feComponent',
+        name: 'component/app name',
         message:
           'Your component name. You can either prefix it with fe-co, or the generator will do it for you'
       },
