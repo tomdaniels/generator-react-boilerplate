@@ -5,6 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+- change yeoman generator version.
 
 ## [1.2.0][] - 2018-06-18
 ### Fixed
@@ -54,7 +55,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Generator created
 
 
-[Unreleased]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.2.0...HEAD
+[Unreleased]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.2.1...HEAD
+[1.2.1]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v0.6.0...v1.0.0
