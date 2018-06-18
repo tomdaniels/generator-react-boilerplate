@@ -6,7 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 ### Fixed
-- Pascalcase dependency 
+- Pascalcase dependency
+- eslint config
 
 ## [0.5.1][] - 2018-06-16
 - fix version error
