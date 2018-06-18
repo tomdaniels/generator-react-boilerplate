@@ -13,8 +13,7 @@
     "dev-server": "webpack-dev-server",
     "version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && git add CHANGELOG.md",
     "watch": "webpack-dev-server",
-    "test": "nyc mocha",
-    "test-watch": "jest --config=jest.config.json"
+    "test": "nyc mocha"
   },
   "dependencies": {
     "babel-cli": "6.26.0",
