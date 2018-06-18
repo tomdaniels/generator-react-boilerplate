@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+
+## [1.1.0][] - 2018-06-18
 ### Added
 - Take app name, description and author through command line
 - Set up initial config file, write package.json.  
@@ -48,7 +50,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Generator created
 
 
-[Unreleased]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v0.6.0...v1.0.0
 [0.6.0]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v0.5.1...v0.6.0
 [0.5.1]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v0.5.0...v0.5.1
