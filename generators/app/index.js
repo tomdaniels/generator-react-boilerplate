@@ -19,7 +19,7 @@ module.exports = yeoman.generators.Base.extend({
       {
         type: 'input',
         name: 'author',
-        message: 'What is your name?'
+        message: 'Project author name?'
       }
     ];
 
@@ -34,7 +34,6 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   writing: {
-    // Copy the configuration files
     config: function() {
       this.fs.copyTpl(
         this.templatePath('package.json'),
@@ -65,8 +64,25 @@ module.exports = yeoman.generators.Base.extend({
         this.destinationPath('PULL_REQUEST_TEMPLATE.md'),
         {}
       );
-
-      // Copy application files
+      this.fs.copyTpl(
+        this.templatePath('.gitignore'),
+        this.destinationPath('.gitignore'),
+        {}
+      );
+      this.fs.copyTpl(
+        this.templatePath('.editorconfig'),
+        this.destinationPath('.editorconfig'),
+        {}
+      );
+      this.fs.copyTpl(
+        this.templatePath('.babelrc'),
+        this.destinationPath('.babelrc'),
+        {}
+      );
+      this.fs.copyTpl(this.templatePath('test/'), this.destinationPath('test/'), {});
+      this.fs.copyTpl(this.templatePath('src/'), this.destinationPath('src/'), {});
+      this.fs.copyTpl(this.templatePath('server/'), this.destinationPath('server/'), {});
+      this.fs.copyTpl(this.templatePath('public/'), this.destinationPath('public/'), {});
     },
 
     install: function() {
