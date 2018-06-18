@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 ### Added
+- Take app name, description and author through command line
 - Set up initial config file, write package.json.  
 
 ## [1.0.0][] - 2018-06-18

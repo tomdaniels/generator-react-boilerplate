@@ -1,9 +1,10 @@
 {
   "name": "<%= name %>",
-  "version": "2.3.3",
+  "version": "0.0.0",
+  "description": "<%= description %>",
   "main": "index.js",
   "repository": "git@github.com:tomdaniels/react-boilerplate.git",
-  "author": "Tom Daniels",
+  "author": "<%= author %>",
   "license": "MIT",
   "scripts": {
     "start": "nodemon server/server.js",
