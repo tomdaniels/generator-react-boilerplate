@@ -32,7 +32,7 @@ module.exports = yeoman.generators.Base.extend({
     // Copy the configuration files
     config: function() {
       this.fs.copyTpl(
-        this.templatePath('_package.json'),
+        this.templatePath('package.json'),
         this.destinationPath('package.json'),
         {
           name: this.props.name
@@ -43,7 +43,7 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     install: function() {
-      this.installDependencies({ bower: false, npm: false, yarn: true });
+      this.installDependencies({ bower: false, npm: true, yarn: true });
     }
   }
 });

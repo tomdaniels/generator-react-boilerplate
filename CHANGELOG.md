@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+### Added
+- Set up initial config file, write package.json.  
 
 ## [1.0.0][] - 2018-06-18
 ### Changed
