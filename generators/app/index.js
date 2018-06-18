@@ -1,108 +1,37 @@
-/* eslint-disable no-underscore-dangle */
-// yeoman expects underscore dangles for private methods
+'use strict';
+
 const Generator = require('yeoman-generator');
-const spawn = require('cross-spawn');
-const glob = require('glob');
-const fs = require('fs-extra');
-const path = require('path');
-const ejs = require('ejs');
-const cloneDeep = require('lodash/cloneDeep');
-const mkdirp = require('mkdirp');
 const chalk = require('chalk');
-const commandExists = require('command-exists');
+const ejs = require('ejs');
+const glob = require('glob');
+const mkdirp = require('mkdirp');
 const findParentDir = require('find-parent-dir');
-const generatorPackageJson = require('../package.json');
-const pascalcase = require('../util/pascalcase');
+const fs = require('fs');
+const spawn = require('cross-spawn');
+const generatorPackageJson = require('../../package.json');
 const { FILE_DELIM_OPEN, FILE_DELIM_CLOSE } = require('../util/ejs-util');
 
-const generatorVersion = generatorPackageJson.version;
-
 module.exports = class extends Generator {
-  _customAppName() {
-    const privateNpmRe = /@.*\/(.*)/;
-    let appname = this._getPackageProp('name');
-    let match;
-
-    if (appname && appname.match(privateNpmRe)) {
-      match = privateNpmRe.exec(appname);
-      [, appname] = match;
-    }
-
-    if (!appname) {
-      appname = path.basename(this.destinationRoot());
-    }
-
-    return appname;
-  },
-
-  _packageAuthor() {
-    let user = '';
-    if (this.user.git.name()) {
-      user += this.user.git.name();
-      if (this.user.git.email()) {
-        user += ` <${this.user.git.email()}>`;
-      }
-    }
-    return user;
-  },
-
-  _getPackageProp(property) {
-    return this.fs.readJSON(this.destinationPath('package.json'), {})[property];
-  },
-
-  initializing() {
-    if (!commandExists.sync('yarn')) {
-      // Hard fail without yarn.
-      this.env.error(
-        chalk.bold.red(
-          'Error: Components require Yarn.\nInstallation: https://yarnpkg.com/en/docs/install',
-        ),
-      );
-      return;
-    }
-
-    this.appname = this._customAppName();
-  },
-
   prompting() {
-    const prompts = [
+    const done = this.async();
+    this.prompt(
       {
         type: 'input',
-        name: 'app/component name',
-        message:
-          'Your application or component name',
+        name: 'name',
+        message: 'Your project name',
+        // Defaults to the project's folder name if the input is skipped
+        default: this.appname
       },
-      {
-        type: 'input',
-        name: 'description',
-        message: 'Write a brief description for your component?',
-      },
-      {
-        type: 'input',
-        name: 'author',
-        message: 'What is your name?',
-        store: true,
-        default: this._packageAuthor(),
-      },
-      {
-        type: 'confirm',
-        name: 'autoLoad',
-        message: 'Auto load the component demo URL after generation?',
-        store: true,
-        default: true,
-      },
-    ];
-
-    return this.prompt(prompts).then((props) => {
-      const newProps = cloneDeep(props);
-      newProps.componentCC = pascalcase(newProps.component);
-      newProps.generatorVersion = generatorVersion;
-      this.props = newProps;
-    });
-  },
+      function(answers) {
+        this.props = answers;
+        this.log(answers.name);
+        done();
+      }.bind(this)
+    );
+  }
 
   writing() {
-    // gitignore needs to be copied to .gitignore
+    // Gitignore needs to be copied to .gitignore
     // We can't have .gitignore in the templates folder because
     // npm decides to do some magic and doesn't publish it
     const dotFileGlob = 'gitignore';
@@ -112,65 +41,58 @@ module.exports = class extends Generator {
       cwd: this.sourceRoot(),
       nodir: true,
       dot: true,
-      ignore: [
-        // eslint-disable-next-line prefer-template
-        './**/' + dotFileGlob,
-        namedTemplateGlob,
-        './**/node_shrinkwrap/**/*',
-      ],
+      ignore: ['./**/' + dotFileGlob, namedTemplateGlob, './**/node_shrinkwrap/**/*']
     });
     const dirs = glob.sync('./**/*/', {
       cwd: this.sourceRoot(),
-      dot: true,
+      dot: true
     });
     const dotTemplates = glob.sync(dotFileGlob, {
       cwd: this.sourceRoot(),
-      dot: true,
+      dot: true
     });
     const namedTemplates = glob.sync(namedTemplateGlob, {
       cwd: this.sourceRoot(),
-      dot: true,
+      dot: true
     });
 
-    dirs.forEach((file) => {
+    dirs.forEach(file => {
       mkdirp(this.destinationPath(file));
     });
 
-    templates.forEach((file) => {
+    templates.forEach(file => {
       const renderedFile = ejs.render(file, this.props);
       this.fs.copyTpl(
         this.templatePath(file),
         this.destinationPath(renderedFile),
-        this.props,
+        this.props
       );
     });
 
-    dotTemplates.forEach((file) => {
+    dotTemplates.forEach(file => {
       const renderedFile = ejs.render(file, this.props);
       this.fs.copyTpl(
         this.templatePath(file),
         // eslint-disable-next-line prefer-template
         this.destinationPath('.' + renderedFile),
-        this.props,
+        this.props
       );
     });
 
-    namedTemplates.forEach((file) => {
-      const ejsFile = file
-        .replace(FILE_DELIM_OPEN, '<%')
-        .replace(FILE_DELIM_CLOSE, '%>');
+    namedTemplates.forEach(file => {
+      const ejsFile = file.replace(FILE_DELIM_OPEN, '<%').replace(FILE_DELIM_CLOSE, '%>');
       const renderedFile = ejs.render(ejsFile, this.props);
       this.fs.copyTpl(
         this.templatePath(file),
         this.destinationPath(renderedFile),
-        this.props,
+        this.props
       );
     });
-  },
+  }
 
   install() {
     this.installDependencies({ bower: false, npm: false, yarn: true });
-  },
+  }
 
   end() {
     // Callback to squelch error messages from symlink already created
@@ -179,11 +101,9 @@ module.exports = class extends Generator {
     fs.symlink(
       'node_modules/@domain-group/fe-lint-scss/scsslintrc',
       this.destinationPath('.scss-lint.yml'),
-      () => {},
+      () => {}
     );
 
-    // unlink and delete onld symlinks from boilerplate <= 2.3.6
-    // TODO remove unlink in boilerplate@3
     fs.unlink(this.destinationPath('.eslintrc'), () => {});
     fs.unlink(this.destinationPath('.eslintignore'), () => {});
 
@@ -204,15 +124,15 @@ module.exports = class extends Generator {
           '-am',
           `"Initial commit from ${generatorPackageJson.name}@${
             generatorPackageJson.version
-          }"`,
+          }"`
         ],
-        { stdio: 'inherit' },
+        { stdio: 'inherit' }
       );
       spawn.sync('git', ['checkout', '-b', 'develop'], { stdio: 'inherit' });
     } else {
       // eslint-disable-next-line no-console
       console.log(
-        `Skipping git initialization. .git folder found in parent directory [${gitDir}]`,
+        `Skipping git initialization. .git folder found in parent directory [${gitDir}]`
       );
     }
 
@@ -227,11 +147,10 @@ module.exports = class extends Generator {
       // Leading and trailing spaces important to differentiate output
       // eslint-disable-next-line no-console
       console.log(`
-
 Get started:
 - yarn start
 - visit http://localhost:3000
-      `);
+     `);
     }
-  },
+  }
 };

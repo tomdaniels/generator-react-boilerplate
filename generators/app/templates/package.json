@@ -1,5 +1,5 @@
 {
-  "name": "td-react-boilerplate",
+  "name": "<%= name %>",
   "version": "2.3.3",
   "main": "index.js",
   "repository": "git@github.com:tomdaniels/react-boilerplate.git",

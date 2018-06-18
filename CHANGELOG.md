@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+### Changed
+- Re-written generator
 
 ## [0.6.0][] - 2018-06-18
 ### Fixed
