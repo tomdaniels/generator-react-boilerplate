@@ -1,5 +1,6 @@
+/* eslint-disable no-underscore-dangle */
 // yeoman expects underscore dangles for private methods
-const Generator = require('yeoman-generator');
+const yeoman = require('yeoman-generator');
 const spawn = require('cross-spawn');
 const glob = require('glob');
 const fs = require('fs-extra');
@@ -11,11 +12,12 @@ const chalk = require('chalk');
 const commandExists = require('command-exists');
 const findParentDir = require('find-parent-dir');
 const generatorPackageJson = require('../package.json');
+const pascalcase = require('pascalcase');
 const { FILE_DELIM_OPEN, FILE_DELIM_CLOSE } = require('../util/ejs-util');
 
 const generatorVersion = generatorPackageJson.version;
 
-module.exports = class extends Generator {
+module.exports = yeoman.extend({
   _customAppName() {
     const privateNpmRe = /@.*\/(.*)/;
     let appname = this._getPackageProp('name');
@@ -66,9 +68,9 @@ module.exports = class extends Generator {
     const prompts = [
       {
         type: 'input',
-        name: 'component/app name',
+        name: 'app/component name',
         message:
-          'Your component name. You can either prefix it with fe-co, or the generator will do it for you'
+          'Your application or component name',
       },
       {
         type: 'input',
@@ -93,6 +95,7 @@ module.exports = class extends Generator {
 
     return this.prompt(prompts).then((props) => {
       const newProps = cloneDeep(props);
+      newProps.componentCC = pascalcase(newProps.component);
       newProps.generatorVersion = generatorVersion;
       this.props = newProps;
     });
@@ -231,4 +234,4 @@ Get started:
       `);
     }
   },
-};
+});
