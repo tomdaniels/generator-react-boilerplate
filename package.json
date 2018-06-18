@@ -1,56 +1,83 @@
 {
   "name": "generator-td-react-boilerplate",
-  "version": "0.6.0",
-  "description": "Generator td-react-boilerplate",
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com:tomdaniels/generator-react-boilerplate.git"
+  "version": "0.0.0",
+  "description": "generator for td-react-boilerplate",
+  "homepage": "https://github.com/tomdaniels/generator-react-boilerplate",
+  "author": {
+    "name": "tomdaniels",
+    "email": "thomsondaniels@hotmail.com",
+    "url": "https://github.com/tomdaniels"
   },
-  "author": "Tom Daniels",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tomdaniels/generator-react-boilerplate/issues"
-  },
-  "engines": {
-    "node": ">= 8.9.0",
-    "npm": ">= 5.2.0"
-  },
-  "scripts": {
-    "pretest": "eslint .",
-    "test": "mocha",
-    "version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && git add CHANGELOG.md"
-  },
-  "bin": {
-    "update-boilerplate": "scripts/update-boilerplate/index.js"
-  },
-  "homepage": "https://github.com/tomdaniels/generator-react-boilerplate#readme",
-  "dependencies": {
-    "chalk": "^1.1.3",
-    "command-exists": "^1.2.2",
-    "cross-spawn": "^4.0.0",
-    "ejs": "^2.3.4",
-    "find-parent-dir": "^0.3.0",
-    "fs-extra": "^0.30.0",
-    "github-diff": "^1.2.1",
-    "glob": "^7.0.6",
-    "in-publish": "^2.0.0",
-    "lodash": "^4.17.2",
-    "mkdirp": "^0.5.1",
-    "node-diff3": "tonyg/node-diff3#patch-1",
-    "upath": "^0.2.0",
-    "yeoman-generator": "^1.1.1"
-  },
+  "files": [
+    "generators"
+  ],
+  "main": "generators/index.js",
   "keywords": [
     "yeoman-generator"
   ],
   "devDependencies": {
-    "changelog-verify": "^1.0.4",
     "eslint": "^4.19.1",
-    "eslint-plugin-react": "^7.9.1",
-    "mocha": "^3.5.3",
-    "prettier": "^1.13.4",
-    "version-changelog": "^2.0.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-xo": "^0.20.1",
+    "eslint-plugin-prettier": "^2.6.0",
+    "husky": "^0.14.3",
+    "jest": "^22.0.6",
+    "lint-staged": "^6.1.1",
+    "nsp": "^2.8.0",
+    "prettier": "^1.11.1",
     "yeoman-assert": "^3.1.0",
     "yeoman-test": "^1.7.0"
-  }
+  },
+  "engines": {
+    "npm": ">= 4.0.0"
+  },
+  "dependencies": {
+    "chalk": "^2.1.0",
+    "cross-spawn": "^6.0.5",
+    "yeoman-generator": "^2.0.1",
+    "yosay": "^2.0.1"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "scripts": {
+    "prepublishOnly": "nsp check",
+    "pretest": "eslint .",
+    "precommit": "lint-staged",
+    "test": "jest"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "xo",
+      "prettier"
+    ],
+    "env": {
+      "jest": true,
+      "node": true
+    },
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true,
+          "printWidth": 90
+        }
+      ]
+    },
+    "plugins": [
+      "prettier"
+    ]
+  },
+  "repository": "git@github.com:tomdaniels/generator-react-boilerplate.git",
+  "license": "ISC"
 }

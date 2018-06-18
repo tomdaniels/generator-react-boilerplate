@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "tomdaniels",
+      "authorEmail": "thomsondaniels@hotmail.com",
+      "authorUrl": "https://github.com/tomdaniels"
+    }
+  }
+}
