@@ -2,17 +2,21 @@
 
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
-const yosay = require('yosay');
+const ejs = require('ejs');
+const glob = require('glob');
+const mkdirp = require('mkdrip');
+const findParentDir = require('find-parent-dir');
 const fs = require('fs');
 const spawn = require('cross-spawn');
 const generatorPackageJson = require('../../package.json');
+const { FILE_DELIM_OPEN, FILE_DELIM_CLOSE } = require('../util/ejs-util');
 
 module.exports = class extends Generator {
   prompting() {
     const done = this.async();
     this.prompt(
       {
-        type: 'input'
+        type: 'input',
         name: 'name',
         message: 'Your project name',
         // Defaults to the project's folder name if the input is skipped
@@ -100,8 +104,6 @@ module.exports = class extends Generator {
       () => {}
     );
 
-    // Unlink and delete onld symlinks from boilerplate <= 2.3.6
-    // TODO remove unlink in boilerplate@3
     fs.unlink(this.destinationPath('.eslintrc'), () => {});
     fs.unlink(this.destinationPath('.eslintignore'), () => {});
 
