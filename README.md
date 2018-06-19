@@ -1,5 +1,6 @@
 # generator-td-react-boilerplate [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> generator for td-react-boilerplate
+
+- generator for [td-react-boilerplate](https://www.npmjs.com/package/td-react-boilerplate)
 
 ## Installation
 
@@ -15,8 +16,6 @@ Then generate your new project:
 ```bash
 yo td-react-boilerplate
 ```
-
-A homemade boilerplate for React applications.
 
 ## Out of the box?
 
