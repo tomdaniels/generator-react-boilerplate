@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [1.2.8][] - 2018-06-19
+### Fixed
+- Readme fixes
+
 ## [1.2.7][] - 2018-06-19
 ### Changed
 - Readme update
@@ -81,7 +85,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Generator created
 
 
-[Unreleased]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.2.7...HEAD
+[Unreleased]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.2.8...HEAD
+[1.2.8]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.2.7...v1.2.8
 [1.2.7]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.2.6...v1.2.7
 [1.2.6]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.2.5...v1.2.6
 [1.2.5]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.2.4...v1.2.5
