@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+### Changed
+- change prompts phrasing
 
 ## [1.2.1][] - 2018-06-18
 - change yeoman generator version.

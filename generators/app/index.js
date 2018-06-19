@@ -19,7 +19,7 @@ module.exports = yeoman.generators.Base.extend({
       {
         type: 'input',
         name: 'author',
-        message: 'Project author name?'
+        message: 'Project author'
       }
     ];
 
