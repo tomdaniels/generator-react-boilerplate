@@ -64,8 +64,9 @@ module.exports = yeoman.generators.Base.extend({
         this.destinationPath('PULL_REQUEST_TEMPLATE.md'),
         {}
       );
+      // Hack to get around npm's magic with .gitignore
       this.fs.copyTpl(
-        this.templatePath('.gitignore'),
+        this.templatePath('gitignore.txt'),
         this.destinationPath('.gitignore'),
         {}
       );

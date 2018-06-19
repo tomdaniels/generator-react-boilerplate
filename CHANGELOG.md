@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+### Fixed
+- .gitignore as txt file in template, copied to .gitignore in destination.
 
 ## [1.2.5][] - 2018-06-19
 ### Removed
