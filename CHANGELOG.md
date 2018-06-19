@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+
+## [1.2.3][] - 2018-06-19
 ### Fixed
 - Updated modules failing nsp check.
 
@@ -63,7 +65,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Generator created
 
 
-[Unreleased]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.2.2...HEAD
+[Unreleased]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.2.3...HEAD
+[1.2.3]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.2.2...v1.2.3
 [1.2.2]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.2.1...v1.2.1
 [1.2.1]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.2.0...v1.2.1
