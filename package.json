@@ -36,10 +36,14 @@
   "dependencies": {
     "chalk": "^2.1.0",
     "cross-spawn": "^6.0.5",
+    "deep-extend": "0.5.1",
     "ejs": "^2.6.1",
     "find-parent-dir": "^0.3.0",
     "glob": "^7.1.2",
+    "lodash": "4.17.5",
+    "minimatch": "3.0.2",
     "mkdirp": "^0.5.1",
+    "tunnel-agent": "0.6.0",
     "yeoman-generator": "0.20.0"
   },
   "jest": {
