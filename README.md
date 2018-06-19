@@ -16,6 +16,56 @@ Then generate your new project:
 yo td-react-boilerplate
 ```
 
+A homemade boilerplate for React applications.
+
+## Out of the box?
+
+- Webpack configured for both dev and prod environments.
+- Jump right into landing.js and start your project.
+- Has an express server.js file for quick deployment once ready.
+- If you have issues with `yarn start` try `yarn build:dev` initially.
+
+## The Setup
+
+```
+.
+├── public
+│   ├── dist
+│   │   └── // webpack bundled code
+│   ├── images
+│   │   └── // static images
+│   └── index.html
+├── server
+│   └── server.js
+├── src
+│   ├── js
+│   │   ├── components
+│   │   │   └── landing.js
+│   │   └── app.js
+│   └── scss
+│       ├── general
+│       │    ├── general.js
+│       │    └── settings.scss
+│       ├── partials
+│       │   ├── // component styles go here
+│       │   └── landing.js
+│       └── styles.scss
+├── test
+│   ├── components
+│   │   └── landing.js
+│   ├── globals.js
+│   └── mocha.opts
+├── .babelrc
+├── .editorconfig
+├── .gitignore
+├── CHANGELOG.md
+├── package.json
+├── PULL_REQUEST_TEMPLATE.md
+├── README.md
+├── webpack.config.js
+└── yarn.lock
+```
+
 ## Getting To Know Yeoman
 
  * Yeoman has a heart of gold.
