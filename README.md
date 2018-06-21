@@ -1,4 +1,4 @@
-# generator-td-react-boilerplate [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-td-react-boilerplate [![NPM version][npm-image]][npm-url]
 
 - generator for [td-react-boilerplate](https://www.npmjs.com/package/td-react-boilerplate)
 
