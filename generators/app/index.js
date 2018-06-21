@@ -18,6 +18,11 @@ module.exports = yeoman.generators.Base.extend({
       },
       {
         type: 'input',
+        name: 'repository',
+        message: 'git repository URL (if relevant)'
+      },
+      {
+        type: 'input',
         name: 'author',
         message: 'Project author'
       }
@@ -41,6 +46,7 @@ module.exports = yeoman.generators.Base.extend({
         {
           name: this.props.name,
           description: this.props.description,
+          repository: this.props.repository,
           author: this.props.author
         }
       );
