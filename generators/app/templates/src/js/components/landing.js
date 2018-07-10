@@ -1,8 +1,8 @@
 import React from 'react';
 
 const Landing = () => (
-    <div>
-        Replace me with an app!
+    <div className="center">
+        Get started with your project: <%= name %>
     </div>
 );
 
