@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+
+## [1.3.0][] - 2018-07-10
 ### Changed
 - Use the users app name on initially landing page and in html title element, for more personal experience.
 - Now asks user if there is a repository that already exists, and ask for the URL only if the answer is yes
@@ -96,7 +98,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Generator created
 
 
-[Unreleased]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.2.8...HEAD
+[Unreleased]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.3.0...HEAD
+[1.3.0]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.2.8...v1.3.0
 [1.2.8]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.2.7...v1.2.8
 [1.2.7]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.2.6...v1.2.7
 [1.2.6]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.2.5...v1.2.6
