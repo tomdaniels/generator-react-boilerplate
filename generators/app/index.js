@@ -28,13 +28,28 @@ module.exports = yeoman.generators.Base.extend({
         default: false
       }
     ];
+    const repositoryUrlPrompt = {
+      type: 'input',
+      name: 'repository',
+      message: 'enter the repository URL'
+    };
 
     this.prompt(
       prompts,
       function(answers) {
         this.props = answers;
-        this.log(answers.name);
-        done();
+
+        if (answers.repositoryConfirm) {
+          this.prompt(repositoryUrlPrompt, function(repository) {
+            this.props = {
+              ...answers,
+              repository
+            };
+            done();
+          });
+        } else {
+          done();
+        }
       }.bind(this)
     );
   },
@@ -92,7 +107,9 @@ module.exports = yeoman.generators.Base.extend({
         name: this.props.name
       });
       this.fs.copyTpl(this.templatePath('server/'), this.destinationPath('server/'), {});
-      this.fs.copyTpl(this.templatePath('public/'), this.destinationPath('public/'), {});
+      this.fs.copyTpl(this.templatePath('public/'), this.destinationPath('public/'), {
+        name: this.props.name
+      });
     },
 
     install: function() {

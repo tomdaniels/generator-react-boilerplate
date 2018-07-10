@@ -6,14 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 ### Changed
-- Use the users app name on initially landing page, for more personal experience.
+- Use the users app name on initially landing page and in html title element, for more personal experience.
 - Now asks user if there is a repository that already exists, and ask for the URL only if the answer is yes
 
 ### Added
 - Partials folder under `src/scss/` with dummy styles for demonstration purposes.
-
-### Added
 - Prompt for existing repository URL to add to end state package.json
+
 ### Removed
 - Jest test suite.
 
