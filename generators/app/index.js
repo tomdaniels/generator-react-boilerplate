@@ -18,13 +18,14 @@ module.exports = yeoman.generators.Base.extend({
       },
       {
         type: 'input',
-        name: 'repository',
-        message: 'git repository URL (if relevant)'
-      },
-      {
-        type: 'input',
         name: 'author',
         message: 'Project author'
+      },
+      {
+        type: 'confirm',
+        name: 'repositoryConfirm',
+        message: 'is there an existing repository for this project?',
+        default: false
       }
     ];
 
