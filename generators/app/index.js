@@ -18,22 +18,46 @@ module.exports = yeoman.generators.Base.extend({
       },
       {
         type: 'input',
-        name: 'repository',
-        message: 'git repository URL (if relevant)'
-      },
-      {
-        type: 'input',
         name: 'author',
         message: 'Project author'
+      },
+      {
+        type: 'confirm',
+        name: 'repositoryConfirm',
+        message: 'Is there an existing repository for this project?',
+        default: false
+      }
+    ];
+    const repositoryUrlPrompt = [
+      {
+        type: 'input',
+        name: 'repository',
+        message: 'Enter the repository URL'
       }
     ];
 
     this.prompt(
       prompts,
       function(answers) {
-        this.props = answers;
-        this.log(answers.name);
-        done();
+        if (answers.repositoryConfirm) {
+          this.prompt(
+            repositoryUrlPrompt,
+            function(repository) {
+              // The below declaration is a bit of a hack.
+              // I'm not sure why but repository is being stored as a nested obect.
+              const repositoryUrl = repository.repository;
+              const responses = {
+                ...answers,
+                repository: repositoryUrl
+              };
+              this.props = responses;
+              done();
+            }.bind(this)
+          );
+        } else {
+          this.props = answers;
+          done();
+        }
       }.bind(this)
     );
   },
@@ -44,7 +68,7 @@ module.exports = yeoman.generators.Base.extend({
         this.templatePath('package.json'),
         this.destinationPath('package.json'),
         {
-          name: this.props.name,
+          name: this.props.name.split(' ').join('-'),
           description: this.props.description,
           repository: this.props.repository,
           author: this.props.author
@@ -87,9 +111,13 @@ module.exports = yeoman.generators.Base.extend({
         {}
       );
       this.fs.copyTpl(this.templatePath('test/'), this.destinationPath('test/'), {});
-      this.fs.copyTpl(this.templatePath('src/'), this.destinationPath('src/'), {});
+      this.fs.copyTpl(this.templatePath('src/'), this.destinationPath('src/'), {
+        name: this.props.name
+      });
       this.fs.copyTpl(this.templatePath('server/'), this.destinationPath('server/'), {});
-      this.fs.copyTpl(this.templatePath('public/'), this.destinationPath('public/'), {});
+      this.fs.copyTpl(this.templatePath('public/'), this.destinationPath('public/'), {
+        name: this.props.name
+      });
     },
 
     install: function() {

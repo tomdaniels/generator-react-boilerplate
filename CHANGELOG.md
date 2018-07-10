@@ -5,8 +5,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+### Changed
+- Use the users app name on initially landing page and in html title element, for more personal experience.
+- Now asks user if there is a repository that already exists, and ask for the URL only if the answer is yes
+
 ### Added
+- Partials folder under `src/scss/` with dummy styles for demonstration purposes.
+- Pull request template for actual generator
 - Prompt for existing repository URL to add to end state package.json
+
 ### Removed
 - Jest test suite.
 
