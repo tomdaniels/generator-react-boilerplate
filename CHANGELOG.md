@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 - Partials folder under `src/scss/` with dummy styles for demonstration purposes.
+- Pull request template for actual generator
 - Prompt for existing repository URL to add to end state package.json
 
 ### Removed
