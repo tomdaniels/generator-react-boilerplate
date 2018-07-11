@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+
+## [1.3.1][] - 2018-07-11
 ### Fixed
 - Filename for partials files under `src/scss` and file tree in README.md updated
 
@@ -100,7 +102,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Generator created
 
 
-[Unreleased]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.3.0...HEAD
+[Unreleased]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.3.1...HEAD
+[1.3.1]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.2.8...v1.3.0
 [1.2.8]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.2.7...v1.2.8
 [1.2.7]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.2.6...v1.2.7
