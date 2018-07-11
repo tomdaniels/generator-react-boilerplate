@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+### Fixed
+- Filename for partials files under `src/scss` and file tree in README.md updated
 
 ## [1.3.0][] - 2018-07-10
 ### Changed
