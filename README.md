@@ -47,7 +47,7 @@ yo td-react-boilerplate
 │       │    └── settings.scss
 │       ├── partials
 │       │   ├── // component styles go here
-│       │   └── landing.js
+│       │   └── _landing.scss
 │       └── styles.scss
 ├── test
 │   ├── components
