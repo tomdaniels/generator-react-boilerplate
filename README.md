@@ -2,19 +2,13 @@
 
 - generator for [td-react-boilerplate](https://www.npmjs.com/package/td-react-boilerplate)
 
-## Installation
+## How to use it
 
-First, install [Yeoman](http://yeoman.io) and generator-td-react-boilerplate using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
-
-```bash
-npm install -g yo
-npm install -g generator-td-react-boilerplate
-```
-
-Then generate your new project:
+All you need to do is create a directory based on your project/component name, and let the generator do the rest!
 
 ```bash
-yo td-react-boilerplate
+mkdir fe-component && cd fe-component
+npx -p yo -p generator-td-react-boilerplate -c 'yo td-react-boilerplate'
 ```
 
 ## Out of the box?
