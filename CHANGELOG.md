@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+
+## [1.3.3][] - 2018-08-31
 ### Added
 - Travis CI integration
 
@@ -108,7 +110,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Generator created
 
 
-[Unreleased]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.3.2...HEAD
+[Unreleased]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.3.3...HEAD
+[1.3.3]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.3.2...v1.3.3
 [1.3.2]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.3.2...v1.3.2
 [1.3.2]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.3.1...v1.3.2
 [1.3.1]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.3.0...v1.3.1
