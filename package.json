@@ -35,9 +35,6 @@
   "dependencies": {
     "yeoman-generator": "0.20.0"
   },
-  "jest": {
-    "testEnvironment": "node"
-  },
   "scripts": {
     "pretest": "eslint .",
     "test": "jest",
