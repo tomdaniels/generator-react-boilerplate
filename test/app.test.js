@@ -35,6 +35,7 @@ describe('generator-td-node-api-server:app', () => {
     assert.file(['.gitignore']);
     assert.file(['CHANGELOG.md']);
     assert.file(['.editorconfig']);
+    assert.file(['.eslintignore']);
     assert.file(['.babelrc']);
     assert.file(['test/mocha.opts']);
     assert.file(['test/globals.js']);
