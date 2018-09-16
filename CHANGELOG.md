@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [1.3.3][] - 2018-08-31
 ### Added
+- [td lint rules](https://github.com/tomdaniels/td-eslint-config)
 - Travis CI integration
 
 ## [1.3.2][] - 2018-08-03
