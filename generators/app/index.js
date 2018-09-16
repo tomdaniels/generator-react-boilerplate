@@ -101,6 +101,11 @@ module.exports = yeoman.generators.Base.extend({
         {}
       );
       this.fs.copyTpl(
+        this.templatePath('.eslintignore'),
+        this.destinationPath('.eslintignore'),
+        {}
+      );
+      this.fs.copyTpl(
         this.templatePath('.editorconfig'),
         this.destinationPath('.editorconfig'),
         {}
