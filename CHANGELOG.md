@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+
+## [1.4.0][] - 2018-09-16
 ### Added
 - [td lint rules](https://github.com/tomdaniels/td-eslint-config)
 
@@ -112,7 +114,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Generator created
 
 
-[Unreleased]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.3.3...HEAD
+[Unreleased]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.4.0...HEAD
+[1.4.0]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.3.3...v1.4.0
 [1.3.3]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.3.2...v1.3.3
 [1.3.2]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.3.2...v1.3.2
 [1.3.2]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.3.1...v1.3.2
