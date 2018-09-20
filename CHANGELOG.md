@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+
+## [1.6.0][] - 2018-09-20
 ### Changed
 - Remove node-sass, swap to [emotion](https://github.com/emotion-js/emotion)
 
@@ -120,7 +122,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Generator created
 
 
-[Unreleased]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.5.0...HEAD
+[Unreleased]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.6.0...HEAD
+[1.6.0]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.3.3...v1.4.0
 [1.3.3]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.3.2...v1.3.3
