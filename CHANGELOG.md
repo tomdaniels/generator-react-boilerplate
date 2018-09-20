@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+### Changed
+- bumped `td-eslint-config` with arrow-parens rules
+
+### Fixed
+- Removed file extension on import
 
 ## [1.6.0][] - 2018-09-20
 ### Changed
