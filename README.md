@@ -14,6 +14,8 @@ npx -p yo -p generator-td-react-boilerplate -c 'yo td-react-boilerplate'
 ## Out of the box?
 
 - Webpack configured for both dev and prod environments.
+- Uses [emotion](https://github.com/emotion-js/emotion) to leverage css inline with javascript
+- lint with common rules already configured
 - Jump right into landing.js and start your project.
 - Has an express server.js file for quick deployment once ready.
 - If you have issues with `yarn start` try `yarn build:dev` initially.
@@ -35,14 +37,9 @@ npx -p yo -p generator-td-react-boilerplate -c 'yo td-react-boilerplate'
 │   │   ├── components
 │   │   │   └── landing.js
 │   │   └── app.js
-│   └── scss
-│       ├── general
-│       │    ├── general.js
-│       │    └── settings.scss
-│       ├── partials
-│       │   ├── // component styles go here
-│       │   └── _landing.scss
-│       └── styles.scss
+│   └── styles
+│       ├── // see [emotion](https://github.com/emotion-js/emotion) if this is not familiar
+│       └── landing.js
 ├── test
 │   ├── components
 │   │   └── landing.js
@@ -50,6 +47,7 @@ npx -p yo -p generator-td-react-boilerplate -c 'yo td-react-boilerplate'
 │   └── mocha.opts
 ├── .babelrc
 ├── .editorconfig
+├── .eslintignore
 ├── .gitignore
 ├── CHANGELOG.md
 ├── package.json

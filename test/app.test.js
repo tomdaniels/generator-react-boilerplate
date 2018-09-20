@@ -42,10 +42,7 @@ describe('generator-td-node-api-server:app', () => {
     assert.file(['test/components/landing.js']);
     assert.file(['src/js/app.js']);
     assert.file(['src/js/components/landing.js']);
-    assert.file(['src/scss/styles.scss']);
-    assert.file(['src/scss/partials/_landing.scss']);
-    assert.file(['src/scss/general/_settings.scss']);
-    assert.file(['src/scss/general/_general.scss']);
+    assert.file(['src/styles/landing.js']);
     assert.file(['server/server.js']);
     assert.file(['public/index.html']);
     assert.file(['public/images/loader.gif']);
