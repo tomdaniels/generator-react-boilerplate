@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [1.7.0][] - 2021-02-03
+
 ### Fixed
 - remove spaces from user input
 
@@ -135,7 +137,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Generator created
 
 
-[Unreleased]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.6.1...HEAD
+[Unreleased]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.7.0...HEAD
+[1.7.0]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.6.1...v1.7.0
 [1.6.1]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.6.0...v1.6.1
 [1.6.0]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.4.0...v1.5.0
