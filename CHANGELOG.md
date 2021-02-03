@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Fixed
+- remove spaces from user input
+
+### Updated
+- Package deps, default file refactor
+
 ## [1.6.1][] - 2018-09-20
 ### Changed
 - bumped `td-eslint-config` with arrow-parens rules

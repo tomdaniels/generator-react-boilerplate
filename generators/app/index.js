@@ -9,7 +9,7 @@ module.exports = yeoman.generators.Base.extend({
         name: 'name',
         message: 'Your project name',
         // Defaults to the project's folder name if the input is skipped
-        default: this.appname
+        default: this.appname.replace(' ', '-')
       },
       {
         type: 'input',
@@ -68,7 +68,7 @@ module.exports = yeoman.generators.Base.extend({
         this.templatePath('package.json'),
         this.destinationPath('package.json'),
         {
-          name: this.props.name.split(' ').join('-'),
+          name: this.props.name.replace(' ', '-'),
           description: this.props.description,
           repository: this.props.repository,
           author: this.props.author
