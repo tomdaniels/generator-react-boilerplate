@@ -14,4 +14,3 @@
 
 > Add a screenshot and a quick dot-point outline
 > Add instructions on testing
-> Add JIRA or Trello etc link

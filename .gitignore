@@ -5,3 +5,6 @@
 
 # misc
 .idea/
+
+# auto generated codee
+yarn.lock
