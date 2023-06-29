@@ -29,10 +29,16 @@ module.exports = class extends Generator {
         message: "Project author"
       },
       {
+        type: "confirm",
+        name: "git",
+        message: "Initialise as a git repsitory?",
+        defult: false
+      },
+      {
         type: "input",
-        name: "repository",
-        message: "Existing repostiory URL",
-        default: ""
+        name: "repositoryUrl",
+        message: "Enter a repository url?",
+        when: answers => answers.git
       }
     ];
 
@@ -42,11 +48,11 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    const { name, desc, repository, author } = this.props;
+    const { name, desc, repositoryUrl, author } = this.props;
     [
       {
         path: "package.json",
-        props: { name, desc, repository, author }
+        props: { name, desc, repositoryUrl, author }
       },
       {
         path: "README.md",
@@ -83,8 +89,10 @@ module.exports = class extends Generator {
   install() {
     this.yarnInstall();
 
-    this.spawnCommandSync("git", ["init", "--quiet"]);
-    this.spawnCommandSync("git", ["add", "."]);
-    this.spawnCommandSync("git", ["commit", "-m", "init :tada:", "--quiet"]);
+    if (this.props.git) {
+      this.spawnCommandSync("git", ["init", "--quiet"]);
+      this.spawnCommandSync("git", ["add", "."]);
+      this.spawnCommandSync("git", ["commit", "-m", "init :tada:", "--quiet"]);
+    }
   }
 };

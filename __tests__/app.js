@@ -12,7 +12,8 @@ describe("generator-td-node-api-server:app", () => {
       name: "some-api",
       desc: "some description",
       author: "Tom Daniels",
-      repository: "github.com"
+      git: true,
+      repositoryUrl: "github.com"
     };
     props = promptAnswers;
     return helpers
