@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+## Updated
+- updated generated app to simple & unopinionated react app w/ parcel
+- `yeoman-generator` to latest version w/ adopting changes.
 
 ## [1.7.1][] - 2021-02-03
 ### Fixed

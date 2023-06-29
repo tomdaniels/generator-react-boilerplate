@@ -5,6 +5,7 @@
 
 # misc
 .idea/
+coverage
 
 # auto generated codee
 yarn.lock

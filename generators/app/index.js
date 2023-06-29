@@ -1,132 +1,90 @@
-const yeoman = require('yeoman-generator');
+"use strict";
+const Generator = require("yeoman-generator");
+const chalk = require("chalk");
+const yosay = require("yosay");
 
-module.exports = yeoman.generators.Base.extend({
-  prompting: function() {
-    const done = this.async();
+module.exports = class extends Generator {
+  prompting() {
+    this.log(
+      yosay(
+        `Welcome to the unreal ${chalk.red("td-react-boilerplate")} generator!`
+      )
+    );
+
     const prompts = [
       {
-        type: 'input',
-        name: 'name',
-        message: 'Your project name',
-        // Defaults to the project's folder name if the input is skipped
-        default: this.appname.replace(' ', '-')
+        type: "input",
+        name: "name",
+        message: "Your project name",
+        default: this.appname.replace(" ", "-")
       },
       {
-        type: 'input',
-        name: 'description',
-        message: 'Write a brief description for your component?'
+        type: "input",
+        name: "desc",
+        message: "Write a brief description for your component?"
       },
       {
-        type: 'input',
-        name: 'author',
-        message: 'Project author'
+        type: "input",
+        name: "author",
+        message: "Project author"
       },
       {
-        type: 'confirm',
-        name: 'repositoryConfirm',
-        message: 'Is there an existing repository for this project?',
-        default: false
-      }
-    ];
-    const repositoryUrlPrompt = [
-      {
-        type: 'input',
-        name: 'repository',
-        message: 'Enter the repository URL'
+        type: "input",
+        name: "repository",
+        message: "Existing repostiory URL",
+        default: ""
       }
     ];
 
-    this.prompt(
-      prompts,
-      function(answers) {
-        if (answers.repositoryConfirm) {
-          this.prompt(
-            repositoryUrlPrompt,
-            function(repository) {
-              // The below declaration is a bit of a hack.
-              // I'm not sure why but repository is being stored as a nested obect.
-              const repositoryUrl = repository.repository;
-              const responses = {
-                ...answers,
-                repository: repositoryUrl
-              };
-              this.props = responses;
-              done();
-            }.bind(this)
-          );
-        } else {
-          this.props = answers;
-          done();
-        }
-      }.bind(this)
-    );
-  },
-
-  writing: {
-    config: function() {
-      this.fs.copyTpl(
-        this.templatePath('package.json'),
-        this.destinationPath('package.json'),
-        {
-          name: this.props.name.replace(' ', '-'),
-          description: this.props.description,
-          repository: this.props.repository,
-          author: this.props.author
-        }
-      );
-      this.fs.copyTpl(this.templatePath('README.md'), this.destinationPath('README.md'), {
-        name: this.props.name
-      });
-      this.fs.copyTpl(
-        this.templatePath('CHANGELOG.md'),
-        this.destinationPath('CHANGELOG.md'),
-        {
-          name: this.props.name
-        }
-      );
-      this.fs.copyTpl(
-        this.templatePath('webpack.config.js'),
-        this.destinationPath('webpack.config.js'),
-        {}
-      );
-      this.fs.copyTpl(
-        this.templatePath('PULL_REQUEST_TEMPLATE.md'),
-        this.destinationPath('PULL_REQUEST_TEMPLATE.md'),
-        {}
-      );
-      // Hack to get around npm's magic with .gitignore
-      this.fs.copyTpl(
-        this.templatePath('gitignore.txt'),
-        this.destinationPath('.gitignore'),
-        {}
-      );
-      this.fs.copyTpl(
-        this.templatePath('.eslintignore'),
-        this.destinationPath('.eslintignore'),
-        {}
-      );
-      this.fs.copyTpl(
-        this.templatePath('.editorconfig'),
-        this.destinationPath('.editorconfig'),
-        {}
-      );
-      this.fs.copyTpl(
-        this.templatePath('.babelrc'),
-        this.destinationPath('.babelrc'),
-        {}
-      );
-      this.fs.copyTpl(this.templatePath('test/'), this.destinationPath('test/'), {});
-      this.fs.copyTpl(this.templatePath('src/'), this.destinationPath('src/'), {
-        name: this.props.name
-      });
-      this.fs.copyTpl(this.templatePath('server/'), this.destinationPath('server/'), {});
-      this.fs.copyTpl(this.templatePath('public/'), this.destinationPath('public/'), {
-        name: this.props.name
-      });
-    },
-
-    install: function() {
-      this.installDependencies({ bower: false, npm: true, yarn: true });
-    }
+    return this.prompt(prompts).then(answers => {
+      this.props = answers;
+    });
   }
-});
+
+  writing() {
+    const { name, desc, repository, author } = this.props;
+    [
+      {
+        path: "package.json",
+        props: { name, desc, repository, author }
+      },
+      {
+        path: "README.md",
+        props: { name, desc }
+      },
+      {
+        path: "CHANGELOG.md",
+        props: { name, desc }
+      },
+      {
+        path: "PULL_REQUEST_TEMPLATE.md"
+      },
+      {
+        path: "gitignore.txt",
+        destination: ".gitignore"
+      },
+      {
+        path: "index.html",
+        props: { name }
+      },
+      {
+        path: "src/",
+        props: { name }
+      }
+    ].forEach(({ path, props = {}, destination }) => {
+      this.fs.copyTpl(
+        this.templatePath(path),
+        this.destinationPath(destination || path),
+        props
+      );
+    });
+  }
+
+  install() {
+    this.yarnInstall();
+
+    this.spawnCommandSync("git", ["init", "--quiet"]);
+    this.spawnCommandSync("git", ["add", "."]);
+    this.spawnCommandSync("git", ["commit", "-m", "init :tada:", "--quiet"]);
+  }
+};
