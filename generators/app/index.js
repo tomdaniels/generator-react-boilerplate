@@ -4,6 +4,13 @@ const chalk = require("chalk");
 const yosay = require("yosay");
 
 module.exports = class extends Generator {
+  constructor(args, opts) {
+    super(args, opts);
+
+    // Sets npm as default package
+    this.option("npm");
+  }
+
   prompting() {
     this.log(
       yosay(
@@ -43,12 +50,15 @@ module.exports = class extends Generator {
     ];
 
     return this.prompt(prompts).then(answers => {
-      this.props = answers;
+      this.props = {
+        ...answers,
+        pkgManager: this.options.npm ? "npm" : "yarn"
+      };
     });
   }
 
   writing() {
-    const { name, desc, repositoryUrl, author } = this.props;
+    const { name, desc, repositoryUrl, author, pkgManager } = this.props;
     [
       {
         path: "package.json",
@@ -56,7 +66,7 @@ module.exports = class extends Generator {
       },
       {
         path: "README.md",
-        props: { name, desc }
+        props: { name, desc, pkgManager }
       },
       {
         path: "CHANGELOG.md",
@@ -87,7 +97,11 @@ module.exports = class extends Generator {
   }
 
   install() {
-    this.yarnInstall();
+    if (this.options.npm) {
+      this.npmInstall();
+    } else {
+      this.yarnInstall();
+    }
 
     if (this.props.git) {
       this.spawnCommandSync("git", ["init", "--quiet"]);

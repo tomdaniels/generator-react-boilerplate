@@ -11,9 +11,11 @@ mkdir your-cool-app && cd your-cool-app
 npx -p yo -p generator-td-react-boilerplate -c 'yo td-react-boilerplate'
 ```
 
+_the default package manager is [yarn](https://yarnpkg.com/cli/install), though you can pass a `--npm` flag if you prefer to use [npm](https://docs.npmjs.com/downloading-and-installing-packages-locally)_
+
 ## The Setup
 
-A simple, lightweight and un-opinionated react app w/ [parcel.jps](https://parceljs.org/)
+A simple, lightweight and un-opinionated react app w/ [parcel.js](https://parceljs.org/).  
 
 ```
 .

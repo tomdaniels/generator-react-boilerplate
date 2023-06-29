@@ -9,4 +9,4 @@ A homemade boilerplate for a lightweight and unopinionated react app with [parce
 
 To get started with development you only need one simple command:
 
-`yarn start`
+`<%= pkgManager %> start`
