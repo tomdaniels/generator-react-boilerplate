@@ -15,7 +15,7 @@ module.exports = class extends Generator {
   }
 
   prompting() {
-    this.welcomeMessage();
+    greeting.bind(this).call();
     return this.prompt(prompts(this)).then(answers => {
       this.props = {
         ...answers,
@@ -48,12 +48,12 @@ module.exports = class extends Generator {
       this.spawnCommandSync("git", ["commit", "-m", "init :tada:", "--quiet"]);
     }
   }
-
-  welcomeMessage() {
-    this.log(
-      yosay(
-        `Welcome to the unreal ${chalk.red("td-react-boilerplate")} generator!`
-      )
-    );
-  }
 };
+
+function greeting() {
+  this.log(
+    yosay(
+      `Welcome to the unreal ${chalk.red("td-react-boilerplate")} generator!`
+    )
+  );
+}

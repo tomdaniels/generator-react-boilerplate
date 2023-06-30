@@ -19,7 +19,7 @@ module.exports = ctx => [
     type: "confirm",
     name: "git",
     message: "Initialise as a git repsitory?",
-    defult: false
+    default: false
   },
   {
     type: "input",
