@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+
+## [2.0.1][] - 2023-06-30
 ## Fixed
 - readme link to npm
 
@@ -149,7 +151,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Generator created
 
 
-[Unreleased]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v2.0.1...HEAD
+[2.0.1]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v2.0.0...v2.0.0
 [2.0.0]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.7.1...v2.0.0
 [1.7.1]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.7.0...v1.7.1
