@@ -4,57 +4,32 @@
 
 ## How to use it
 
-All you need to do is create a directory based on your project/component name, and let the generator do the rest!
+Create your directory and fire up the generator:
 
 ```bash
-mkdir fe-component && cd fe-component
+mkdir your-cool-app && cd your-cool-app
 npx -p yo -p generator-td-react-boilerplate -c 'yo td-react-boilerplate'
 ```
 
-## Out of the box?
-
-- Webpack configured for both dev and prod environments.
-- Uses [emotion](https://github.com/emotion-js/emotion) to leverage css inline with javascript
-- lint with common rules already configured
-- Jump right into landing.js and start your project.
-- Has an express server.js file for quick deployment once ready.
-- If you have issues with `yarn start` try `yarn build:dev` initially.
+_the default package manager is [yarn](https://yarnpkg.com/cli/install), though you can pass a `--npm` flag if you prefer to use [npm](https://docs.npmjs.com/downloading-and-installing-packages-locally)_
 
 ## The Setup
 
+A simple, lightweight and un-opinionated react app w/ [parcel.js](https://parceljs.org/).  
+
 ```
 .
-├── public
-│   ├── dist
-│   │   └── // webpack bundled code
-│   ├── images
-│   │   └── // static images
-│   └── index.html
-├── server
-│   └── server.js
 ├── src
-│   ├── js
-│   │   ├── components
-│   │   │   └── landing.js
-│   │   └── app.js
-│   └── styles
-│       ├── // see [emotion](https://github.com/emotion-js/emotion) if this is not familiar
-│       └── landing.js
-├── test
-│   ├── components
-│   │   └── landing.js
-│   ├── globals.js
-│   └── mocha.opts
-├── .babelrc
-├── .editorconfig
-├── .eslintignore
-├── .gitignore
-├── CHANGELOG.md
-├── package.json
-├── PULL_REQUEST_TEMPLATE.md
+│   ├── index.js 
+│   └── components
+│        └── app.js
+│
+├── index.html
 ├── README.md
-├── webpack.config.js
-└── yarn.lock
+├── CHANGELOG.md
+├── PULL_REQUEST_TEMPLATE.md
+├── .gitignore
+└── package.json
 ```
 
 ## Getting To Know Yeoman

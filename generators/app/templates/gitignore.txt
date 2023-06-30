@@ -2,11 +2,11 @@
 
 # dependencies
 /node_modules
-.nyc_output/
 
-# auto generated code
-dist/
+# bundles/generated code
+.parcel-cache
 yarn.lock
+dist/
 
 # misc
 .idea/

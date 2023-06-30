@@ -1,3 +1,0 @@
---require babel-register
---require test/globals.js
---recursive test/
