@@ -1,6 +1,6 @@
 # generator-td-react-boilerplate [![Build Status](https://travis-ci.com/tomdaniels/generator-react-boilerplate.svg?branch=master)](https://travis-ci.com/tomdaniels/generator-react-boilerplate) [![NPM version][npm-image]][npm-url]
 
-- generator for [td-react-boilerplate](https://www.npmjs.com/package/td-react-boilerplate)
+- generator for [td-react-boilerplate](https://www.npmjs.com/package/generator-td-react-boilerplate)
 
 ## How to use it
 
