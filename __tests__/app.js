@@ -3,6 +3,8 @@ const path = require("path");
 const assert = require("yeoman-assert");
 const helpers = require("yeoman-test");
 
+const { files } = require("../generators/app/utils/files");
+
 let props;
 let promptAnswers;
 
@@ -26,15 +28,10 @@ describe("generator-td-node-api-server:app", () => {
   });
 
   it("generates the web app", () => {
-    assert.file([
-      "index.html",
-      ".gitignore",
-      "package.json",
-      "README.md",
-      "CHANGELOG.md",
-      "PULL_REQUEST_TEMPLATE.md",
-      "src/index.js",
-      "src/components/app.js"
-    ]);
+    assert.file(
+      Object.values(files).map(file =>
+        file === files.GIT_IGNORE ? ".gitignore" : file
+      )
+    );
   });
 });

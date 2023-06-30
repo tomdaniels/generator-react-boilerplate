@@ -3,95 +3,34 @@ const Generator = require("yeoman-generator");
 const chalk = require("chalk");
 const yosay = require("yosay");
 
+const pick = require("lodash/pick");
+
+const prompts = require("./utils/prompts");
+const { files, dependencies } = require("./utils/files");
+
 module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts);
-
-    // Sets npm as default package
     this.option("npm");
   }
 
   prompting() {
-    this.log(
-      yosay(
-        `Welcome to the unreal ${chalk.red("td-react-boilerplate")} generator!`
-      )
-    );
-
-    const prompts = [
-      {
-        type: "input",
-        name: "name",
-        message: "Your project name",
-        default: this.appname.replace(" ", "-")
-      },
-      {
-        type: "input",
-        name: "desc",
-        message: "Write a brief description for your component?"
-      },
-      {
-        type: "input",
-        name: "author",
-        message: "Project author"
-      },
-      {
-        type: "confirm",
-        name: "git",
-        message: "Initialise as a git repsitory?",
-        defult: false
-      },
-      {
-        type: "input",
-        name: "repositoryUrl",
-        message: "Enter a repository url?",
-        when: answers => answers.git
-      }
-    ];
-
-    return this.prompt(prompts).then(answers => {
+    this.welcomeMessage();
+    return this.prompt(prompts(this)).then(answers => {
       this.props = {
         ...answers,
+        repositoryUrl: answers.repositoryUrl || "",
         pkgManager: this.options.npm ? "npm" : "yarn"
       };
     });
   }
 
   writing() {
-    const { name, desc, repositoryUrl, author, pkgManager } = this.props;
-    [
-      {
-        path: "package.json",
-        props: { name, desc, repositoryUrl, author }
-      },
-      {
-        path: "README.md",
-        props: { name, desc, pkgManager }
-      },
-      {
-        path: "CHANGELOG.md",
-        props: { name, desc }
-      },
-      {
-        path: "PULL_REQUEST_TEMPLATE.md"
-      },
-      {
-        path: "gitignore.txt",
-        destination: ".gitignore"
-      },
-      {
-        path: "index.html",
-        props: { name }
-      },
-      {
-        path: "src/",
-        props: { name }
-      }
-    ].forEach(({ path, props = {}, destination }) => {
+    Object.values(files).forEach(file => {
       this.fs.copyTpl(
-        this.templatePath(path),
-        this.destinationPath(destination || path),
-        props
+        this.templatePath(file),
+        this.destinationPath(file === files.GIT_IGNORE ? ".gitignore" : file),
+        pick(this.props, dependencies.get(file))
       );
     });
   }
@@ -108,5 +47,13 @@ module.exports = class extends Generator {
       this.spawnCommandSync("git", ["add", "."]);
       this.spawnCommandSync("git", ["commit", "-m", "init :tada:", "--quiet"]);
     }
+  }
+
+  welcomeMessage() {
+    this.log(
+      yosay(
+        `Welcome to the unreal ${chalk.red("td-react-boilerplate")} generator!`
+      )
+    );
   }
 };
