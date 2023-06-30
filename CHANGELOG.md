@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
+
+## [2.0.0][] - 2023-06-30
 ## Updated
 - updated generated app to simple & unopinionated react app w/ parcel
 - `yeoman-generator` to latest version w/ adopting changes.
@@ -145,7 +147,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Generator created
 
 
-[Unreleased]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.7.1...HEAD
+[Unreleased]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v2.0.0...v2.0.0
+[2.0.0]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.7.1...v2.0.0
 [1.7.1]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.7.0...v1.7.1
 [1.7.0]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.6.1...v1.7.0
 [1.6.1]: https://github.com/tomdaniels/generator-react-boilerplate/compare/v1.6.0...v1.6.1
